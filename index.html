@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+
+    <!-- Google Font - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- CSS Style-->
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        div {
+            position: relative;
+            height: 100%;
+        }
+
+        table {
+            text-align: left;
+            width: 75%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        th {
+            background-color: #1ca9c9;
+            color: #fcfcfc;
+            padding: 12px 8px 12px 8px;
+            font-weight: 600;
+
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #E6F4F1;
+        }
+
+        tr:hover {
+            background-color: #478A7C;
+            color: #fcfcfc;
+        }
+
+        @media (max-width:768px){
+            table {
+                width: 90%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                </tr>
+            </thead>
+
+            <tbody id="table-body">
+                <!-- table body -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- JS Script -->
+    <script>
+
+        // details
+        const tableData = [
+        {
+        "name": "Ryan Schuman",
+        "age": 5,
+        "gender": "Male"
+        },
+        {
+        "name": "Mona Reese",
+        "age": 34,
+        "gender": "Female"
+        },
+        {
+        "name": "Tyler Lawson",
+        "age": 14,
+        "gender": "Male"
+        },
+        {
+        "name": "Tess Mallin",
+        "age": 25,
+        "gender": "Female"
+        },
+        {
+        "name": "Jerry Parkinson",
+        "age": 50,
+        "gender": "Male"
+        },
+        {
+        "name": "Shirley Walters",
+        "age": 31,
+        "gender": "Female"
+        },
+        {
+        "name": "Nina Joseph",
+        "age": 17,
+        "gender": "Female"
+        },
+        {
+        "name": "Vera Daniel",
+        "age": 45,
+        "gender": "Female"
+        },
+        {
+        "name": "Simon Osborne",
+        "age": 32,
+        "gender": "Male"
+        },
+        {
+        "name": "Avery Hawkins",
+        "age": 10,
+        "gender": "Male"
+        },
+        {
+        "name": "Marvin Collins",
+        "age": 22,
+        "gender": "Male"
+        }
+        ];
+
+        // adding rows
+        let tableRow = (e) => {
+            const table = document.getElementById("table-body");
+
+            for(let i=0; i < e.length; ++i){
+                let row = 
+                `<tr>
+                    <td>${e[i].name}</td>
+                    <td>${e[i].age}</td>
+                    <td>${e[i].gender}</td>
+                </tr>`
+
+                table.innerHTML += row;
+            }
+        }
+
+        tableRow(tableData);
+    </script>
+</body>
+</html>
